@@ -1,0 +1,62 @@
+<section class="content container-fluid">
+  <div class="box box-info">
+    <div class="box-header with-border">
+      <h3 class="box-title">图书详情</h3>
+    </div>
+    <!-- /.box-header -->
+    <!-- form start -->
+    <form class="form-horizontal" [formGroup]="bookModule">
+      <div class="box-body">
+        <div class="form-group" [class.hasError]="!nameCheck">
+          <label for="inputEmail3" class="col-sm-2 control-label">图书名称</label>
+          <div class="col-sm-10">
+            <input type="text" class="form-control" name="BookName" formControlName="bookName" placeholder="图书名称"  />
+            <div *ngIf="!nameCheck">
+              <div *ngIf="bookName.errors.required">图书名称是必填项</div>
+              <div *ngIf="!bookName.errors.minLength && !bookName.errors.required">图书名称至少需要输入3个字</div>
+            </div>
+          </div>
+        </div>
+        <div class="form-group" [class.hasError]="!priceCheck">
+          <label for="inputPassword3" class="col-sm-2 control-label" >图书价格</label>
+
+          <div class="col-sm-10">
+            <input type="text" name="BookPrice" class="form-control" formControlName="bookPrice" placeholder="图书价格">
+              <div *ngIf="!priceCheck">图书价格是必填项</div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="inputEmail3" class="col-sm-2 control-label">图书评级</label>
+          <div class="col-sm-10">
+            <app-stars [rating]='book.BookRating' (outer)="getRating($event)"></app-stars>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="inputEmail3" class="col-sm-2 control-label">图书描述</label>
+
+          <div class="col-sm-10">
+            <textarea name="" id="" rows="10" class="form-control" formControlName="bookDesc" placeholder="图书描述"></textarea>
+          </div>
+        </div>
+        <div class="form-group" [class.hasError]="!valueCheck">
+          <label for="inputEmail3" class="col-sm-2 control-label">图书种类</label>
+          <div class="col-sm-10" formArrayName="bookCategories">
+            <div *ngFor="let item of bookModule.get('bookCategories').controls;let i=index" class="checkbox col-sm-2">
+              <label>
+                <input type="checkbox" name="category" [formControl]='item'><span>{{book.BookCategories[i].type}}</span>
+              </label>
+            </div>  
+          </div>
+          <label class="col-sm-2 control-label"></label>
+            <div *ngIf="!valueCheck">至少选择一个图书类型</div>       
+        </div>
+      </div>
+      <!-- /.box-body -->
+      <div class="box-footer">
+        <button type="button" class="btn btn-default" [routerLink]="[ '/booklist' ]">取消</button>
+        <button type="button" class="btn btn-info pull-right" [routerLink]="[ '/booklist' ]" (click)='updateBook()' [disabled]="bookModule.invalid">保存</button>
+      </div>
+      <!-- /.box-footer -->
+    </form>
+  </div>
+</section>

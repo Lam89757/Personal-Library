@@ -1,0 +1,2 @@
+<!-- <span *ngFor="let star of stars" class="glyphicon glyphicon-star" [class.glyphicon-star-empty]="star"></span> -->
+<span *ngFor="let star of stars,let key=index" class="glyphicon" [ngClass]="{'glyphicon-star':!star,'glyphicon-star-empty':star}" (click)="sendRating(key)"></span>

@@ -1,0 +1,49 @@
+.box-body>.table {
+  width: 100%;
+  max-width: 100%;
+  margin-bottom: 20px;
+}
+.box-body>.table  tr > th,
+.box-body>.table tr > th,
+.box-body>.table tr > th,
+.box-body>.table tr > td,
+.box-body>.table tr > td,
+.box-body>.table tr > td {
+  padding: 8px;
+  line-height: 1.42857143;
+  vertical-align: top;
+  border-top: 1px solid #ddd;
+}
+.table > thead > tr > th {
+  vertical-align: bottom;
+  border-bottom: 2px solid #ddd;
+}
+.table > caption + thead > tr:first-child > th,
+.table > colgroup + thead > tr:first-child > th,
+.table > thead:first-child > tr:first-child > th,
+.table > caption + thead > tr:first-child > td,
+.table > colgroup + thead > tr:first-child > td,
+.table > thead:first-child > tr:first-child > td {
+  border-top: 0;
+}
+.table > tbody + tbody {
+  border-top: 2px solid #ddd;
+}
+.table .table {
+  background-color: #fff;
+}
+.table-bordered {
+  border: 1px solid #ddd;
+}
+.table-bordered  tr > th,
+.table-bordered  tr > th,
+.table-bordered  tr > th,
+.table-bordered  tr > td,
+.table-bordered  tr > td,
+.table-bordered  tr > td {
+  border: 1px solid #ddd;
+}
+.table-bordered > thead > tr > th,
+.table-bordered > thead > tr > td {
+  border-bottom-width: 2px;
+} 

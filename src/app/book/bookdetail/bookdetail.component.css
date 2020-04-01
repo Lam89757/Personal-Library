@@ -1,0 +1,6 @@
+.hasError{
+  color: red;
+}
+.hasError input{
+  border-color: red;
+}

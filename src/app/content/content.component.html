@@ -1,0 +1,14 @@
+<div class="content-wrapper">
+  <section class="content-header" *ngIf="pageTitle!='error'">
+    <h1>
+      {{pageTitle}}
+      <small *ngIf="pageTitle!='首页'">在这里查看所有图书信息</small>
+    </h1>
+
+    <ol class="breadcrumb">
+      <li><a href="#"><i class="fa fa-dashboard"></i> Level</a></li>
+      <li class="active">Here</li>
+    </ol>
+</section>
+<router-outlet></router-outlet>
+</div>
